@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="../static/register-1.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <input type="checkbox" id="flip">
+      <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+
+          {% if  err_string == 'your password has been sent to your registered email' or err_string == 'email does not exits' %}
+            <div class="title">Forgot Password</div>
+          {% else %}
+            <div class="title">Signup</div>
+          {% endif %}
+
+            <form action="{{ url_for('forgot_reset') }}" method="post" class="reveal-content">
+              <div class="input-boxes">
+                <div class="input-box"> {% if  err_string == 'your password has been sent to your registered email'%} <h4>
+                    <p>Your password has been sent to your registered email</p>
+                  </h4>
+                  <br>
+                  <div class="title2">
+                   <div class="text"><a href="{{ url_for('login2') }}">Login</a></div>
+
+                  </div> {% elif err_string == 'email does not exits' %} <h4>Email doesn't exits, you can try again</h4>
+                </div>
+                <div class="input-box">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" placeholder="Enter your email" name="email" required>
+                </div>
+                <div class="button input-box">
+                  <input type="submit" value="Sumbit">
+                </div> {% else %} <h4>Don't worry, we will make you to reset your password</h4>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Enter your email" name="email" required>
+              </div>
+              <div class="button input-box">
+                <input type="submit" value="Sumbit">
+              </div> {% endif %}
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </body>

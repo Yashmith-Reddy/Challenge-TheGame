@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../static/index.css">
+	<link rel="icon" href="../static/assert/Library.ico" type="image/x-icon" />
+	<title>Check Your Luck</title>
+	</head>
+
+<body>
+
+
+
+<p class="middle2"><strong> Check your luck!</strong></p>
+<p class="middle3"><strong>Select your choice:</strong></p>
+	<form action="{{ url_for('fruits') }}" method="post" class="reveal-content">
+		<div class="row">
+
+				 <label><img src="../static/Apple.jpg" alt="">
+					 <input type="radio" onclick="myFunction()" class="1" id="1" name="fav_language" value="1"><strong>Apple</strong></label>
+
+
+			 	<label><img src="../static/Banana.jpg" alt="">
+					<input type="radio" onclick="myFunction()" class="1" id="2" name="fav_language" value="2"><strong>Banana</strong></label>
+
+
+			 	<label><img src="../static/Watermelon.jpg" alt="">
+					<input type="radio" onclick="myFunction()" class="1" id="3" name="fav_language" value="3"><strong>Watermelon</strong></label>
+
+
+
+			 	<label><img src="../static/Mango.jpg" alt="">
+					<input type="radio" onclick="myFunction()" class="1" id="4" name="fav_language" value="4"><strong>Mango</strong></label>
+<!--			<div class="gallery2">-->
+<!--				<label><img src="../static/IceApple.jpg" alt="">-->
+<!--					<div class="desc"><input type="radio" onclick="myFunction()" class="1" id="5" name="fav_language" value="5"><strong>Ice apple</strong></div></label></div>-->
+		 <div>
+			<input type="submit" value="Submit ->" style="font-weight: 700;" id="mySubmit" disabled>
+		 </div>
+		</div>
+	 </form>
+	<p class="color"><strong>{{ b }}</strong></p>
+	 <div class="line">
+		 <p class="middle1"><strong>Name: {{name}}</strong></p>
+		 <p class="middle1"><strong>Email: {{dbRecord}}</strong></p>
+		 {% if  score != 0 and attempts != 0%}
+		 	<p class="middle1"><strong>Rank: {{rank}}</strong></p>
+		 {% else %}
+		 	<p class="middle1"><strong>Rank: -</strong></p>
+		 {% endif %}
+		<p class="middle1"><strong>Score: {{score}}</strong></p>
+		 {% if  score != 0 and attempts != 0%}
+		 	<p class="middle1"><strong>Accuracy: {{score/attempts}}</strong></p>
+		 {% else %}
+		 	<p class="middle1"><strong>Accuracy: 0</strong></p>
+		 {% endif %}
+		 <p class="middle1"><strong>Attempts: {{attempts}}</strong></p><hr style="border: 2px solid saddlebrown; width: 505px;">
+
+		 <p class="middle"><strong>Leader Board</strong></p>
+		<table style="width: 50px;">
+
+			<tr>
+
+    			<th>Name</th>
+				<th>Email</th>
+				<th>Rank</th>
+				<th>Score</th>
+  			</tr>
+			{% for w in mail %}
+				{% if w.score != 0 %}
+			<tr>
+				<td>{{w.name}}</td>
+				<td>{{w.email}}</td>
+
+				<td>{{w.rank}}</td>
+
+				<td>{{w.score}}</td>
+
+			  </tr>
+				{% endif %}
+			 {% endfor %}
+
+		</table>
+	 </div>
+	<script>
+	function myFunction() {
+	  document.getElementById("mySubmit").disabled = false;
+	}
+</script>
+</body>
+
+</html>

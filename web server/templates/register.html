@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="canonical" href="https://j/" />
+    <meta charset="UTF-8">
+    <!--<title> Login and Registration Form in HTML & CSS | CodingLab </title>-->
+    <link rel="stylesheet" href="../static/register-1.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+
+<div class="container">
+    <input type="checkbox" id="flip">
+        <div class="cover">
+
+          <div class="front">
+            <img src="../static/kid.jpg" alt="">
+                  <div class="text">
+                    {% if ( err_string == "Invalid user name" ): %}
+                      <span class="text-1">Invalid user name</span>
+                    {% elif ( err_string == "Invalid password" ): %}
+                      <span class="text-1">Invalid password</span>
+
+                    {% else %}
+                        <span class="text-3">Let's play !!!</span>
+                      {% endif %}
+
+
+          <div class="back">
+            <img src="../static/doodle-5548474.png" height="100px" width="100px" alt=""></div>
+         <div class="text"></div>
+         <!--<span class="text-1">The greater the obstacle<br> the more glory in overcoming it</span>-->
+        </div>
+      </div>
+    </div>
+        <div class="forms">
+        <div class="form-content">
+          <div class="login-form">
+            <div class="title">Challenge</div>
+          <form action="{{ url_for('login') }}" method="post" class="reveal-content">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Enter your email" id="email" name="email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password"  name="password" min="5" required>
+              </div>
+                <div class="text"><a href="{{ url_for('forgot1') }}" >Forgot password?</a></div>
+
+              <div class="button input-box">
+                <input type="submit" value="Submit">
+              </div>
+              <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label></div>
+            </div>
+        </form>
+      </div>
+
+        <div class="signup-form">
+          <div class="title">Challenge</div>
+<!--               <div class="back">-->
+<!--                    <img src="../static/kid.jpg" alt="">-->
+
+
+        <form action="{{ url_for('register') }}" method="post" class="reveal-content">
+            <div class="input-boxes">
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" placeholder="Enter your name" name="name" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Enter your email" name="email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Enter your password"  name="password" min="5" required>
+              </div>
+
+              <div class="button input-box">
+                <input type="submit" value="Submit"></div>
+                <div class="text sign-up-text">Already have an account?<label for="flip">Login now</label> </div>
+            </div>
+      </form>
+        </div></div>
+    </div>
+    </div>
+
+  <script>
+
+  </script>
+</body></html>
+
